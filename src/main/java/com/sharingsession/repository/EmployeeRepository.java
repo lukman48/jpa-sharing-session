@@ -20,9 +20,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, EmployeeIden
 
     public List<Employee> findAll();
 
-    @Query("select count(*) from Employee where name := name")
+    @Query("select count(name) from Employee where name = :name")
     public Long countEmployeeByNameHql(String nama);
     
     public Long countEmployeeByName(String nama);
+
+
     
 }
